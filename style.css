@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap'); /* Importa a fonte Poppins */
+
+/* Reset e fonte padrão */
+*{
+    font-family: 'Poppins', Arial, sans-serif; /* Define a fonte padrão */
+    color: #f5f5f5;                           /* Cor padrão do texto */
+    margin: 0;                                /* Remove margens padrão */
+    padding: 0;                               /* Remove espaçamentos padrão */
+    box-sizing: border-box;                   /* Inclui borda e padding no tamanho total */
+}
+
+/* Corpo da página com imagem de fundo e layout flex */
+body{
+    min-height: 100vh;                        /* Garante altura mínima da tela inteira */
+    display: flex;                            /* Usa flexbox para layout vertical */
+    flex-direction: column;                   /* Coloca main e footer em coluna */
+    background-image: url('https://images.unsplash.com/photo-1415604934674-561df9abf539?q=80&w=1980&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Imagem de fundo */
+    background-size: cover;                   /* Faz a imagem cobrir toda a tela */
+    background-position: center 70%;          /* Centraliza a imagem, ajustando o foco vertical */
+    background-repeat: no-repeat;             /* Não repete a imagem */
+}
+
+/* Overlay escuro para melhorar contraste do conteúdo */
+body::before{
+    content: '';
+    position: fixed;                          /* Fixa o overlay na tela */
+    top: 0;
+    left: 0;
+    width: 100vw;                             /* Cobre toda a largura da tela */
+    height: 100vh;                            /* Cobre toda a altura da tela */
+    background: rgba(0,0,0,0.4);              /* Fundo preto semi-transparente */
+    z-index: 0;                               /* Fica atrás do conteúdo */
+    pointer-events: none;                     /* Não bloqueia cliques */
+}
+
+/* Garante que main e footer fiquem acima do overlay */
+main,footer{
+    position: relative;
+    z-index: 1;
+}
+
+/* Centraliza o conteúdo principal */
+main{
+    flex: 1;                                  /* Ocupa o espaço disponível */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;                  /* Centraliza verticalmente */
+    align-items: center;                      /* Centraliza horizontalmente */
+}
+
+/* Título principal */
+h1{
+    font-size: 2.5rem;                        /* Tamanho grande */
+    font-weight: 600;                         /* Negrito */
+    color: #00e1ff;                           /* Azul neon */
+    margin-bottom: 12px;                      /* Espaço abaixo do título */
+    text-shadow: 1px 2px 8px #0008;           /* Sombra para destaque */
+}
+
+/* Botões de controle */
+button{
+    font-size: 1.1rem;                        /* Tamanho da fonte */
+    font-weight: 600;                         /* Negrito */
+    padding: 12px 28px;                       /* Espaçamento interno */
+    margin: 0 8px;                            /* Espaço entre botões */
+    border: none;                             /* Sem borda */
+    border-radius: 8px;                       /* Cantos arredondados */
+    background: #00e1ff;                      /* Cor de fundo padrão */
+    color: #222;                              /* Cor do texto */
+    cursor: pointer;                          /* Cursor de mão */
+    transition: background 0.2s, color 0.2s;  /* Transição suave de cor */
+    box-shadow:  0 2px 8px #0003;             /* Sombra leve */
+}
+
+/* Efeito ao passar o mouse nos botões */
+button:hover{
+    filter: brightness(0.85);                 /* Escurece levemente */
+}
+
+/* Destaque de acessibilidade ao focar com teclado */
+button:focus {
+    outline: 2px solid #00e1ff;               /* Borda azul neon ao focar */
+    outline-offset: 2px;                      /* Espaço entre borda e botão */
+}
+
+/* Animação ao clicar no botão */
+button:active{
+    transform: scale(0.95);                   /* Diminui levemente */
+    box-shadow: 0 1px 4px #0005;              /* Sombra menor */
+}
+
+/* Botão "Iniciar" ativo */
+button.active-start{
+    background: #00c853;                      /* Verde */
+    color: #fff;
+}
+
+/* Botão "Parar" ativo */
+button.active-stop{
+    background: #d50000;                      /* Vermelho */
+    color: #fff;
+}
+
+/* Botão "Zerar" ativo */
+button.active-reset{
+    background:#ff9100;                       /* Laranja */
+    color: #fff;
+}
+
+/* Área do cronômetro centralizada */
+#timer-display {
+    display: flex;
+    align-items: baseline;                    /* Alinha base dos números e : */
+    justify-content: center;
+    margin-bottom: 32px;                      /* Espaço abaixo do cronômetro */
+}
+
+/* Estilo dos números e dos dois-pontos */
+#timer-display span {
+    font-size: 4rem;                          /* Números grandes */
+    font-weight: 700;                         /* Negrito */
+    color: #fff;                              /* Branco */
+    text-shadow: 1px 2px 8px #000a;           /* Sombra para destaque */
+    letter-spacing: 2px;                      /* Espaço entre caracteres */
+    margin: 0 4px;                            /* Espaço entre elementos */
+    line-height: 1;
+    transition: color 0.2s, transform 0.2s;   /* Transição suave */
+}
+
+/* Dois-pontos: cor diferenciada e alinhamento */
+#timer-display span:not([id]) {
+    position: relative;
+    top: -6px;                                /* Sobe um pouco para alinhar */
+    color: #b0c4de;                           /* Azul claro discreto */
+}
+
+/* Rodapé centralizado e discreto */
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 16px 0;                          /* Espaço interno */
+    font-size: 1rem;
+    color: #ccc;
+    letter-spacing: 1px;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 600px) {
+    #timer-display span {
+        font-size: 2.2rem;                    /* Números menores */
+    }
+    h1 {
+        font-size: 1.5rem;                    /* Título menor */
+    }
+    button {
+        font-size: 1rem;
+        padding: 10px 18px;
+    }
+}
