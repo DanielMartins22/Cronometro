@@ -20,6 +20,5 @@ Este projeto é um cronômetro simples desenvolvido utilizando **HTML, CSS e Jav
 <img src= "./assets/preview-site.png" alt= "preview-site"> 
 
 Acesse o cronômetro online:  
-🔗 [Clique para visualizar]([https://seu-usuario.github.io/nome-do-repositorio/](https://danielmartins22.github.io/Cronometro/))
-
+🔗 [Clique para visualizar](https://danielmartins22.github.io/Cronometro/)
 
