@@ -146,6 +146,16 @@ footer{
     letter-spacing: 1px;
 }
 
+footer a{
+    color: #00e1ff;                           /* Azul neon */
+    text-decoration: none;                     /* Sem sublinhado */
+    transition: color 0.2s;                   /* Transição suave de cor */
+}
+
+footer a:hover{
+    color: #00c853;
+}
+
 /* Responsividade para telas menores */
 @media (max-width: 600px) {
     #timer-display span {
